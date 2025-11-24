@@ -284,7 +284,7 @@ function gerenciarNumeroGrande(valor) {
 //#region LogicaOperadores
 function logicaOperadores(botaoOperador) {
 
-  numeroAnterior = valorReal;
+  //numeroAnterior = valorReal;
 
   console.log("=== Entrou Operador ===");
   console.log("Display:", calculadoraDisplay.textContent);
@@ -300,14 +300,10 @@ function logicaOperadores(botaoOperador) {
     resultado = calcularResultado();
 
     // MOSTRA OPERAÇÃO COMPLETA (ANTES de zerar a operacao)
-    //displayOperacao.textContent =
-    //numeroAnterior + " " + operacao + " " + numeroAtual;
-    
     displayOperacao.textContent = 
-    gerenciarNumeroGrande(numeroAnterior) + " " + operacao + " " + 
-    gerenciarNumeroGrande(numeroAtual);
+      gerenciarNumeroGrande(numeroAnterior) + " " + operacao + " " + 
+      gerenciarNumeroGrande(numeroAtual);
     
-    //calculadoraDisplay.textContent = resultado;
     calculadoraDisplay.textContent = gerenciarNumeroGrande(resultado);
     ajustarTamanhoFonte();
 
@@ -315,6 +311,11 @@ function logicaOperadores(botaoOperador) {
     operacao = null;
 
     numeroAnterior = resultado.toString();
+    
+    // ⬇️⭐️ RESETAR valorReal AQUI TAMBÉM
+    valorReal = "0";
+    novoNumeroDigitado = false;
+
     console.log("=== Resultado do cálculo ===");
     console.log("Display:", calculadoraDisplay.textContent);
     console.log("Display Operação:", displayOperacao.textContent);
@@ -326,31 +327,44 @@ function logicaOperadores(botaoOperador) {
     numeroAnterior = calculadoraDisplay.textContent;
 
     // MOSTRA PRIMEIRA OPERAÇÃO
-    //displayOperacao.textContent = numeroAnterior + " " + botaoOperador;
-
     displayOperacao.textContent = gerenciarNumeroGrande(numeroAnterior) + " " + botaoOperador;
-    
     calculadoraDisplay.textContent = botaoOperador;
     ajustarTamanhoFonte();
+
+    // ⬇️⭐️ RESETAR valorReal AQUI TAMBÉM
+    valorReal = "0";
+    novoNumeroDigitado = false;
 
     console.log("numeroAnterior salvo:", numeroAnterior);
     console.log("Display Operação:", displayOperacao.textContent);
   } else {
     console.log("=== Só atualiza operação ===");
+    console.log("valorReal:", valorReal);
+    console.log("calculadoraDisplay:", calculadoraDisplay.textContent);
+    console.log("numeroAnterior:", numeroAnterior);
+    console.log("numeroAtual:", numeroAtual);
 
+    // ⬇️ VERIFICAR SE O DISPLAY É UM OPERADOR
+    const displayAtual = calculadoraDisplay.textContent;
+    const numeroParaDisplay = ["+", "-", "x", "/"].includes(displayAtual) 
+    ? numeroAnterior  // Se for operador, usa o numeroAnterior
+    : displayAtual;   // Se for número, usa o display atual
+    
     // ATUALIZA OPERAÇÃO
-    //displayOperacao.textContent = numeroAnterior + " " + botaoOperador;
-
-    displayOperacao.textContent = gerenciarNumeroGrande(numeroAnterior) + " " + botaoOperador;
-
+    displayOperacao.textContent = gerenciarNumeroGrande(numeroParaDisplay) + " " + botaoOperador;
     calculadoraDisplay.textContent = botaoOperador;
     ajustarTamanhoFonte();
+
+    // ⬇️⭐️ RESETAR valorReal AQUI TAMBÉM
+    valorReal = "0";
+    novoNumeroDigitado = false;
     
     console.log("Display Operação:", displayOperacao.textContent);
   }
 
-  novoNumeroDigitado = false;
-  valorReal = "0";
+  // ❌ REMOVER ESTAS LINHAS DO FINAL (já foram colocadas em cada bloco)
+  // novoNumeroDigitado = false;
+  // valorReal = "0";
 
   // ⬇️ Só atualiza a operação se não for um cálculo
   if (!(operacao && novoNumeroDigitado)) {
@@ -364,7 +378,6 @@ function logicaOperadores(botaoOperador) {
   console.log("operacao:", operacao);
   console.log("novoNumeroDigitado:", novoNumeroDigitado);
 }
-
 //#endregion
 
 //#region Reset
