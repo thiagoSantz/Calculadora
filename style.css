@@ -1,0 +1,222 @@
+/* Reset e estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #4c5874;
+  padding: 60px 20px 20px 20px;
+}
+
+.Rodape {
+  display: flex;
+  padding: 40px 180px 20px 180px; /* seu padding */
+  justify-content: center; /* centraliza na caixa */
+  align-items: center; /* centraliza verticalmente */
+  /* ou simplesmente: */
+  text-align: center;
+}
+
+.linha {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgb(169, 169, 169);
+}
+
+.destaque {
+  color: #e67e22; /* Laranja da sua calculadora */
+  font-weight: bold;
+}
+
+.link {
+  color: #27ae60; /* cor do link */
+  text-decoration: none; /* remove sublinhado */
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline; /* sublinha ao passar mouse */
+  font-weight: bold;
+  color: #2ecc71; /* cor diferente no hover */
+}
+
+/* Bloco principal da calculadora */
+.Calculadora {
+  max-width: 320px;
+  margin: 0 auto;
+  background: #2c3e50;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Conteúdo interno */
+.Calculadora__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Display da calculadora */
+.Calculadora__conteudo__display {
+  background: #34495e;
+  color: #ecf0f1;
+  height: 120px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 2px solid #1a252f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; /* já deve ter */
+}
+
+.display-operacao {
+  font-size: 1.4rem;
+  height: 40px;
+  color: #bdc3c7;
+  text-align: right;
+  transition: font-size 0.2s ease; /* Suave */
+}
+
+.display-operacao.medio {
+  font-size: 1.2rem;
+}
+
+.display-operacao.longo {
+  font-size: 1rem;
+}
+
+.display-operacao.muito-longo {
+  font-size: 0.8rem;
+}
+
+.display-resultado {
+  font-size: 3rem;
+  height: 30px;
+  text-align: right;
+  transition: font-size 0.2s ease; /* Suave */
+}
+
+.display-resultado.medio {
+  font-size: 2.2rem;
+}
+
+.display-resultado.longo {
+  font-size: 1.7rem;
+}
+
+.display-resultado.muito-longo {
+  font-size: 1.2rem;
+}
+
+/* Container dos botões */
+.Calculadora__conteudo__botoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Estilos base para TODOS os botões */
+.Calculadora__conteudo__botoes--numero,
+.Calculadora__conteudo__botoes--operador,
+.Calculadora__conteudo__botoes--limpar,
+.Calculadora__conteudo__botoes--inverter,
+.Calculadora__conteudo__botoes--igual,
+.Calculadora__conteudo__botoes--backspace {
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Efeito hover para todos os botões */
+.Calculadora__conteudo__botoes--numero:hover,
+.Calculadora__conteudo__botoes--operador:hover,
+.Calculadora__conteudo__botoes--limpar:hover,
+.Calculadora__conteudo__botoes--inverter:hover,
+.Calculadora__conteudo__botoes--igual:hover,
+.Calculadora__conteudo__botoes--backspace:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Calculadora__conteudo__botoes--espaco {
+  grid-column: span 1; /* Ocupa 1 coluna */
+}
+
+/* Botões numéricos */
+.Calculadora__conteudo__botoes--numero,
+.Calculadora__conteudo__botoes--inverter {
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+.Calculadora__conteudo__botoes--numero:hover,
+.Calculadora__conteudo__botoes--inverter:hover {
+  background: #415b76;
+}
+
+/* Botões operadores */
+.Calculadora__conteudo__botoes--operador {
+  background: #e67e22;
+  color: white;
+}
+
+.Calculadora__conteudo__botoes--operador:hover {
+  background: #f39c12;
+}
+
+/* Botão limpar */
+.Calculadora__conteudo__botoes--limpar {
+  background: #e74c3c;
+  color: white;
+  grid-column: span 2; /* Ocupa 4 colunas */
+}
+
+.Calculadora__conteudo__botoes--limpar:hover {
+  background: #c0392b;
+}
+
+/* Botão Igual */
+.Calculadora__conteudo__botoes--igual {
+  background: #27ae60;
+  color: white;
+  grid-column: span 2;
+}
+
+.Calculadora__conteudo__botoes--igual:hover {
+  background: #2ecc71;
+}
+
+/* Botão Backspace */
+.Calculadora__conteudo__botoes--backspace {
+  font-size: 1.3rem; /* Um pouco maior */
+  text-shadow: 0.3px 0.3px 0px currentColor; /* "Fake bold" */
+  background: #475aaf;
+  color: white;
+}
+
+.Calculadora__conteudo__botoes--backspace:hover {
+  font-size: 1.4rem; /* Um pouco maior */
+  text-shadow: 0.3px 0.3px 0px currentColor; /* "Fake bold" */
+  background: #5971db;
+}
+
+/* Para celulares */
+@media (max-width: 480px) {
+  body {
+    padding: 120px 20px 20px 20px;
+  }
+
+  .Rodape {
+    padding: 40px 40px 20px 40px;
+  }
+}

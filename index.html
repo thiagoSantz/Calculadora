@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="Cabecalho">
+      <div class="Cabecalho-titulo"></div>
+    </div>
+    <div class="Calculadora">
+      <div class="Calculadora__conteudo">
+        <div class="Calculadora__conteudo__display">
+          <div class="display-operacao" id="displayOperacao"></div>
+          <div class="display-resultado" id="display">0</div>
+        </div>
+        <div class="Calculadora__conteudo__botoes">
+          <div class="Calculadora__conteudo__botoes--espaco"></div>
+          <button class="Calculadora__conteudo__botoes--limpar">C</button>
+          <button class="Calculadora__conteudo__botoes--backspace">⌫</button>
+
+          <button class="Calculadora__conteudo__botoes--numero">7</button>
+          <button class="Calculadora__conteudo__botoes--numero">8</button>
+          <button class="Calculadora__conteudo__botoes--numero">9</button>
+          <button class="Calculadora__conteudo__botoes--operador">+</button>
+
+          <button class="Calculadora__conteudo__botoes--numero">4</button>
+          <button class="Calculadora__conteudo__botoes--numero">5</button>
+          <button class="Calculadora__conteudo__botoes--numero">6</button>
+          <button class="Calculadora__conteudo__botoes--operador">-</button>
+
+          <button class="Calculadora__conteudo__botoes--numero">1</button>
+          <button class="Calculadora__conteudo__botoes--numero">2</button>
+          <button class="Calculadora__conteudo__botoes--numero">3</button>
+          <button class="Calculadora__conteudo__botoes--operador">x</button>
+
+          <button class="Calculadora__conteudo__botoes--numero">0</button>
+          <button class="Calculadora__conteudo__botoes--numero">.</button>
+          <button class="Calculadora__conteudo__botoes--inverter">+/-</button>
+          <button class="Calculadora__conteudo__botoes--operador">/</button>
+
+          <div class="Calculadora__conteudo__botoes--espaco"></div>
+          <div class="Calculadora__conteudo__botoes--espaco"></div>
+          <button class="Calculadora__conteudo__botoes--igual">=</button>
+        </div>
+      </div>
+    </div>
+    <div id="testes"></div>
+    <div class="Rodape">
+      <p class="linha">
+        <span>Calculadora por <span class="destaque">Thiago Santana</span> como parte de <a href="https://www.theodinproject.com/" class="link">The Odin Project</a> © 2025. Todos os direitos reservados.</span>
+      </p>
+    </div>
+  </body>
+</html>
