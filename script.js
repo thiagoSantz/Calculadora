@@ -447,7 +447,7 @@ function calcularResultado() {
 
   console.log("Resultado calculado:", resultado);
 
-  numeroAnterior = resultado.toString();
+  //numeroAnterior = resultado.toString();
   acabouDeCalcular = true;
 
   console.log("=== terminou calculo ===");
