@@ -187,7 +187,82 @@ function logicaNumerais(botaoDigitado) {
   if (deveSubstituir) {
     if (botaoDigitado === ".") {
       calculadoraDisplay.textContent = "0.";
+      valorReal = "0.";  // ⬅️ ATUALIZAR valorReal TAMBÉM!
       console.log("=== SUBSTITUIU por 0. ===");
+    } else {
+      // ⬇️ CASO ESPECIAL: Se display é "0." e digita número, CONCATENA
+      if (displayAtual === "0.") {
+        valorReal = displayAtual + botaoDigitado;  // "0." + "2" = "0.2"
+        calculadoraDisplay.textContent = gerenciarNumeroGrande(valorReal);
+        console.log("=== CONCATENOU em 0. ===");
+      } else {
+        // Substituição normal
+        valorReal = botaoDigitado;
+        calculadoraDisplay.textContent = gerenciarNumeroGrande(valorReal);
+        console.log("=== SUBSTITUIU por número ===");
+      }
+    }
+  } else {
+    if (botaoDigitado === ".") {
+      if (!calculadoraDisplay.textContent.includes(".")) {
+        valorReal += botaoDigitado;
+        calculadoraDisplay.textContent = gerenciarNumeroGrande(valorReal);
+        console.log("=== CONCATENOU ponto ===");
+      } else {
+        console.log("=== Já tem ponto, ignorou ===");
+      }
+    } else {
+      valorReal += botaoDigitado;
+      calculadoraDisplay.textContent = gerenciarNumeroGrande(valorReal);
+      console.log("=== CONCATENOU número ===");
+    }
+  }
+  
+  numeroAtual = valorReal;
+  novoNumeroDigitado = true;
+  ajustarTamanhoFonte();
+
+  console.log("=== DEPOIS do número ===");
+  console.log("Display:", calculadoraDisplay.textContent);
+  console.log("Display Operação:", displayOperacao.textContent);
+  console.log("numeroAnterior:", numeroAnterior);
+  console.log("numeroAtual:", numeroAtual);
+  console.log("operacao:", operacao);
+  console.log("novoNumeroDigitado:", novoNumeroDigitado);
+  console.log("acabouDeCalcular:", acabouDeCalcular);
+}
+//#endregion
+
+/*/#region LogicaNumeraisOLD
+function logicaNumerais(botaoDigitado) {
+  const displayAtual = calculadoraDisplay.textContent;
+
+  // VERIFICA SE DEVE SUBSTITUIR
+  const deveSubstituir =
+    displayAtual === "0" ||
+    ["+", "-", "x", "/"].includes(displayAtual) ||
+    acabouDeCalcular;
+
+  console.log("=== Clique número ===");
+  console.log("Display atual:", displayAtual);
+  console.log("Numero anterior:", numeroAnterior);
+  console.log("Deve substituir?", deveSubstituir);
+  console.log("acabouDeCalcular:", acabouDeCalcular);
+  console.log("Botão clicado:", botaoDigitado);
+
+  if (acabouDeCalcular) {
+    console.log("=== Resetou acabouDeCalcular ===");
+    acabouDeCalcular = false;
+    displayOperacao.textContent = ""; // Limpa operação anterior
+  }
+
+  if (deveSubstituir) {
+    if (botaoDigitado === ".") {
+      calculadoraDisplay.textContent = "0.";
+      //novo
+      valorReal = "0.";
+      console.log("=== SUBSTITUIU por 0. ===");
+      // ⬇️ CASO ESPECIAL: Se display é "0." e digita número, CONCATENA
     } else {
       //calculadoraDisplay.textContent = botaoDigitado;
       valorReal = botaoDigitado;
@@ -233,7 +308,7 @@ function logicaNumerais(botaoDigitado) {
   console.log("novoNumeroDigitado:", novoNumeroDigitado);
   console.log("acabouDeCalcular:", acabouDeCalcular);
 }
-//#endregion
+//#endregion*/
 
 //#region Tamanho
 function ajustarTamanhoFonte() {
