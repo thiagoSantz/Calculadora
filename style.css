@@ -219,7 +219,7 @@ body {
 /* Para celulares */
 @media (max-width: 480px) {
   body {
-    padding: 50px 20px 20px 20px;
+    padding: 40px 20px 20px 20px;
   }
 
   .Calculadora {
