@@ -219,10 +219,19 @@ body {
 /* Para celulares */
 @media (max-width: 480px) {
   body {
-    padding: 60px 20px 20px 20px;
+    padding: 50px 20px 20px 20px;
   }
 
+  .Calculadora {
+  max-width: 300px;
+  margin: 0 auto;
+  background: #22303d;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
   .Rodape {
-    padding: 40px 40px 20px 40px;
+    padding: 30px 40px 20px 40px;
   }
 }
